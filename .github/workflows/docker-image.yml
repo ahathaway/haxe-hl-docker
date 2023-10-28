@@ -30,6 +30,8 @@ jobs:
         name: Build and push
         uses: docker/build-push-action@v5
         with:
+          build-args: |
+            HASHLINK_VERSION=${{ env.HASHLINK_VERSION }}
           push: true
           tags: |
             alexhath/haxe-hl:latest
