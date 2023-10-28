@@ -1,4 +1,7 @@
 FROM alexhath/haxe-hl:latest
 
-# Install Heaps
+# Install Heaps & supporting
 RUN haxelib install heaps
+RUN haxelib install hlopenal
+RUN haxelib install hlsdl
+RUN haxelib install hldx
