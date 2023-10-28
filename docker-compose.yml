@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        HASHLINK_VERSION: "${HASHLINK_VERSION:-1.13}"
+    image: "alexhath/haxe-hl:${HASHLINK_VERSION:-1.13}"
+  app_latest:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        HASHLINK_VERSION: "${HASHLINK_VERSION:-1.13}"
+    image: "alexhath/haxe-hl:latest"
