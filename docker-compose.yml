@@ -1,17 +1,45 @@
 version: '3.8'
 
 services:
-  app:
+  hl:
     build:
       context: .
       dockerfile: Dockerfile
       args:
         HASHLINK_VERSION: "${HASHLINK_VERSION:-1.13}"
     image: "alexhath/haxe-hl:${HASHLINK_VERSION:-1.13}"
-  app_latest:
+  hl_latest:
     build:
       context: .
       dockerfile: Dockerfile
       args:
         HASHLINK_VERSION: "${HASHLINK_VERSION:-1.13}"
     image: "alexhath/haxe-hl:latest"
+  heaps:
+    build:
+      context: .
+      dockerfile: Dockerfile.heaps
+      args:
+        HASHLINK_VERSION: "${HASHLINK_VERSION:-1.13}"
+    image: "alexhath/haxe-hl:heaps-${HASHLINK_VERSION:-1.13}"
+  heaps_latest:
+    build:
+      context: .
+      dockerfile: Dockerfile.heaps
+      args:
+        HASHLINK_VERSION: "${HASHLINK_VERSION:-1.13}"
+    image: "alexhath/haxe-hl:heaps-latest"
+  devc:
+    build:
+      context: .
+      dockerfile: Dockerfile.devc
+      args:
+        HASHLINK_VERSION: "${HASHLINK_VERSION:-1.13}"
+    image: "alexhath/haxe-hl:devc-${HASHLINK_VERSION:-1.13}"
+  devc_latest:
+    build:
+      context: .
+      dockerfile: Dockerfile.devc
+      args:
+        HASHLINK_VERSION: "${HASHLINK_VERSION:-1.13}"
+    image: "alexhath/haxe-hl:devc-latest"

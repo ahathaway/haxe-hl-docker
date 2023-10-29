@@ -27,7 +27,7 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       -
-        name: Build and push base image
+        name: Build and push hl only image
         uses: docker/build-push-action@v5
         with:
           build-args: |
@@ -38,7 +38,7 @@ jobs:
             alexhath/haxe-hl:latest
             alexhath/haxe-hl:${{ env.HASHLINK_VERSION }}
       -
-        name: Build and push heaps image
+        name: Build and push hl heaps image
         uses: docker/build-push-action@v5
         with:
           build-args: |
@@ -48,3 +48,14 @@ jobs:
           tags: |
             alexhath/haxe-hl:heaps-latest
             alexhath/haxe-hl:heaps-${{ env.HASHLINK_VERSION }}
+      -
+        name: Build and push devc hl heaps image
+        uses: docker/build-push-action@v5
+        with:
+          build-args: |
+            HASHLINK_VERSION=${{ env.HASHLINK_VERSION }}
+          file: Dockerfile.devc
+          push: true
+          tags: |
+            alexhath/haxe-hl:devc-latest
+            alexhath/haxe-hl:devc-${{ env.HASHLINK_VERSION }}

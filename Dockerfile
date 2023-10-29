@@ -1,7 +1,7 @@
 # ===============================================================
 # Stolen from this genius: https://gitlab.com/haath/haxe-hl-docker
 # ===============================================================
-FROM haxe:4.3.1-bullseye AS build-env
+FROM haxe:4.3.2-bullseye AS build-env
 
 ARG HASHLINK_VERSION
 ENV HASHLINK_VERSION=$HASHLINK_VERSION
@@ -25,9 +25,9 @@ RUN hl --version && echo ""
 
 
 # ===============================================================
-FROM haxe:4.3.1-bullseye
+FROM haxe:4.3.2-bullseye
 
-LABEL maintainer="haath@protonmail.com"
+LABEL maintainer="alex@hathaway.xyz"
 
 # install dependencies
 RUN apt-get update
@@ -44,4 +44,4 @@ COPY --from=build-env /usr/local/include/hlc_main.c /usr/local/include/
 # print out the hashlink version
 RUN hl --version && echo ""
 
-CMD [ "hl" ]
+# CMD [ "hl" ]
